@@ -1,4 +1,4 @@
-export const saveFormValue = ({ state }) => ({
+export const getInPlayEvents = ({ state, action: { payload = [] } } ) => ({
   ...state,
-  [key]: value
+  events: payload
 })

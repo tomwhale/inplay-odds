@@ -1,17 +1,16 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from './components/Home'
-import Results from './components/Search'
+import Results from './components/Results'
 
-const Routes = ({ StaticRouter, location }) => {
-  const Router = StaticRouter || BrowserRouter;
+const Routes = () => {
   return (
-    <Router location={location}>
+    <BrowserRouter>
       <Switch>
         <Route path="/results" component={Results} />
         <Route path="/" component={Home} />
       </Switch>
-    </Router>)
+    </BrowserRouter>)
   }
 
 export default Routes

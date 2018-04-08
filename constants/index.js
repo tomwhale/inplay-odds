@@ -1,1 +1,1 @@
-export const NAMESPACE = '@cntx/'
+export const NAMESPACE = '@inpo/'

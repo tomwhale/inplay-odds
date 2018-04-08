@@ -2,8 +2,8 @@ import request from '../../utils/request'
 
 export const fetchInPlayEvents = async () => {
   try {
-    const { events: results } = await request(`https://betsapi.com/docs/samples/inplay.json`)
-    return { events }
+    const { body } = await request({ url: `/public/inplay.json`})
+    return body;
   } catch (err) {
     return Promise.reject(err)
   }

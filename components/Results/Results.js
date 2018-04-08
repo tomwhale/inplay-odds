@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react'
-import Comment from '../../shared-components/Comment'
+import OddsFetcher from '../../shared-components/OddsFetcher'
 
-export default ({ comments }) => (
+export default ({ events }) => (
   <Fragment>
-    {comments.map(comment => <Comment key={comment.id} text={comment.body} />)}
+    {events.map(i => <OddsFetcher render={(odds) => {
+      return <p>{JSON.stringify(odds)}</p>
+    }} />)}
   </Fragment>
 )

@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 
 module.exports = {
   mode: 'development',
-  entry: ['react-hot-loader/patch', './index.js'],
+  entry: ['babel-polyfill', 'react-hot-loader/patch', './index.js'],
   output: {
     filename: 'bundle.[hash].js',
     publicPath: '/'

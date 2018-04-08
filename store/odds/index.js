@@ -7,8 +7,8 @@ export default (state = initialState, action) => {
   const { type } = action
 
   switch (type) {
-    case actionTypes.SAVE_FORM:
-      return reducers.saveFormValue({ state })
+    case actionTypes.GET_EVENTS:
+      return reducers.getInPlayEvents({state, action})
     default:
       return state
   }

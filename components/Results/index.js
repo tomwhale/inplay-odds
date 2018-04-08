@@ -2,23 +2,18 @@ import * as R from 'ramda'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Results from './Results'
-import getInPlayEvents from '../../store/odds/actions'
+import { getInPlayEvents } from '../../store/odds/actions'
 
 @connect(state => ({
-  state: state
+  events: state.odds.events || []
+}),
+dispatch => ({
+  getInPlayEvents: () => dispatch(getInPlayEvents())
 }))
 export default class ResultsContainer extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      comments: []
-    };
-  }
-
   componentDidMount() {
-    getInPlayEvents();
+    this.props.getInPlayEvents();
   }
 
   _generateProps = () => ({
@@ -27,7 +22,6 @@ export default class ResultsContainer extends Component {
 
   render () {
     const props = this._generateProps()
-    console.log(props)
     return (
       <Results {...props} />
     )
