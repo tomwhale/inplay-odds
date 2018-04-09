@@ -4,8 +4,9 @@ import { connect } from 'react-redux'
 import Results from './Results'
 import { getInPlayEvents } from '../../store/odds/actions'
 
-@connect(state => ({
-  events: state.odds.events || []
+@connect((state, a) => ({
+  events: state.odds.events || [],
+  a
 }),
 dispatch => ({
   getInPlayEvents: () => dispatch(getInPlayEvents())
@@ -22,6 +23,7 @@ export default class ResultsContainer extends Component {
 
   render () {
     const props = this._generateProps()
+    console.log(this.props)
     return (
       <Results {...props} />
     )

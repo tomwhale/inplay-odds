@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react'
+import Match from '../../shared-components/Match'
 import OddsFetcher from '../../shared-components/OddsFetcher'
 
-export default ({ events }) => (
+export default ({ match, events }) => (
   <Fragment>
-    {events.map(i => <OddsFetcher render={(odds) => {
-      return <p>{JSON.stringify(odds)}</p>
-    }} />)}
+    {events.map(match =>
+      <OddsFetcher match={match} render={(odds) => {
+        return <Match odds={odds} match={match} />
+      }} />)}
   </Fragment>
 )
